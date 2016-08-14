@@ -1,16 +1,24 @@
 package CourseProject;
 
 
-public class Mark {
-    private static int nextId = 0;
+public class Mark extends Item{
+    private static int nextId = 1;
 
     private int markId = nextId++;
     private int mark;
-    private int bookId;
 
-    public Mark(int mark) {
-        this.mark = mark;
+    //Constructors
+
+    public Mark() {
     }
+
+    public Mark(int mark, int bookId, int readerId) {
+        this.mark = mark;
+        this.bookId = bookId;
+        this.readerId = readerId;
+    }
+
+    //Getters and Setters
 
     public int getMark() {
         return mark;
@@ -20,12 +28,17 @@ public class Mark {
         this.mark = mark;
     }
 
+    public int getMarkId() {
+        return markId;
+    }
+
     @Override
     public String toString() {
         return "Mark{" +
-                "markId=" + markId +
+                " markId=" + markId +
                 ", mark=" + mark +
                 ", bookId=" + bookId +
+                ", readerId=" + readerId +
                 '}';
     }
 }

@@ -1,6 +1,16 @@
 package CourseProject;
 
 public enum Gender {
-    MALE,
-    FEMALE;
+    MALE("Male"),
+    FEMALE("Female");
+
+    private final String genderName;
+
+    Gender(String genderName) {
+        this.genderName = genderName;
+    }
+
+    public String getGenderName() {
+        return genderName;
+    }
 }

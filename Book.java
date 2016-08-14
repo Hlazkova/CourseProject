@@ -4,26 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Book {
-    private int bookId;
+
+    private static int nextId = 1;
+
+    private int bookId = nextId++;
     private String title;
     private String author;
     private int year;
     private String publisher;
-    private List<Genre> favGenres = new ArrayList<>();
+    private Genre genre; // one book - one genre
     private List <Review> reviews = new ArrayList<>();
     private List <Mark> marks = new ArrayList<>();
 
     //Constructors
 
-    public Book(int bookId, String title, String author, int year, String publisher) {
-        this.bookId = bookId;
+    public Book() {
+    }
+
+    public Book (String title, String author, int year, String publisher, Genre genre) {
         this.title = title;
         this.author = author;
         this.year = year;
         this.publisher = publisher;
+        this.genre = genre;
     }
 
-    //add - remove items
+    //Functions
 
     public void addReview(Review review) {
         reviews.add(review);
@@ -41,15 +47,24 @@ public class Book {
         marks.remove(mark);
     }
 
-    public void addFavGenres (Genre genre) {
-        favGenres.add(genre);
+    public double getAverageMark(List<Mark> marks) {
+        double averageMark = 0;
+        int sum = 0;
+        int n = marks.size();
+
+        if (n == 0) {
+            averageMark = 0;
+        } else {
+            for (Mark mark : marks) {
+                sum += mark.getMark();
+            }
+            averageMark = sum / n;
+        }
+
+        return averageMark;
     }
 
-    public void removeFavGenres (Genre genre) {
-        favGenres.remove(genre);
-    }
-
-    //getters and setters
+    //Getters and Setters
 
     public int getBookId() {
         return bookId;
@@ -91,22 +106,25 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public double getAverageMark(List<Mark> marks) {
-        double averageMark = 0;
-        int sum = 0;
-        int n = marks.size();
-
-        if (n == 0) {
-            averageMark = 0;
-        } else {
-            for (Mark mark : marks) {
-                sum += mark.getMark();
-            }
-            averageMark = sum / n;
-        }
-
-        return averageMark;
+    public Genre getGenre() {
+        return genre;
     }
 
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", year=" + year +
+                ", publisher='" + publisher + '\'' +
+                ", genre=" + genre +
+                ", reviews=" + reviews +
+                ", marks=" + marks +
+                '}';
+    }
 }

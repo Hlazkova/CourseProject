@@ -1,18 +1,26 @@
 package CourseProject;
 
-public class Review {
-    private int reviewId;
+public class Review extends Item{
+    private static int nextId = 1;
+
+    private int reviewId = nextId++;
+
     private String reviewText;
-    private int bookId;
-    private int readerId;
+    //bookId - one review for one particular book
+    //readerId - by one particular reader
 
-    public int getReviewId() {
-        return reviewId;
+    //Constructors
+
+    public Review() {
     }
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
+    public Review(String reviewText, int bookId, int readerId) {
+        this.reviewText = reviewText;
+        this.bookId = bookId;
+        this.readerId = readerId;
     }
+
+    //Getters and Setters
 
     public String getReviewText() {
         return reviewText;
@@ -22,19 +30,17 @@ public class Review {
         this.reviewText = reviewText;
     }
 
-    public int getBookId() {
-        return bookId;
+    public int getReviewId() {
+        return reviewId;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
-    }
-
-    public int getReaderId() {
-        return readerId;
-    }
-
-    public void setReaderId(int readerId) {
-        this.readerId = readerId;
+    @Override
+    public String toString() {
+        return "Review{" +
+                " reviewText='" + reviewText + '\'' +
+                ", reviewId=" + reviewId +
+                ", bookId=" + bookId +
+                ", readerId=" + readerId +
+                '}';
     }
 }
