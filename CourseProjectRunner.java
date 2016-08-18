@@ -1,15 +1,17 @@
 package CourseProject;
 
+import java.util.List;
+
 public class CourseProjectRunner {
     public static void main(String[] args) {
 
         Reader reader1 = new Reader("Nastia", "narolskaya@meta.ua", 25, Gender.FEMALE); //id = 1
-        Reader reader2 = new Reader("Olia", "hlazkova@meta.ua", 31, Gender.FEMALE); //id = 2
+        Reader reader2 = new Reader("Olia", "hlazkova@meta.ua", 31, Gender.FEMALE);     //id = 2
 
-        Book book1 = new Book("Title1", "author", 1930, "publisher", Genre.BIOGRAPHY); //id = 1
-        Book book2 = new Book("Title2", "author", 1940, "publisher", Genre.CLASSIC);   //id = 2
-        Book book3 = new Book("Title3", "author", 1930, "publisher", Genre.DRAMA);     //id = 3
-        Book book4 = new Book("Title4", "author", 1967, "publisher", Genre.FANTASY);   //id = 4
+        Book book1 = new Book("Title1", "author1", 1930, "publisher", Genre.BIOGRAPHY); //id = 1
+        Book book2 = new Book("Title2", "author2", 1940, "publisher", Genre.CLASSIC);   //id = 2
+        Book book3 = new Book("Title3", "author1", 1930, "publisher", Genre.DRAMA);     //id = 3
+        Book book4 = new Book("Title4", "author3", 1967, "publisher", Genre.FANTASY);   //id = 4
 
         Quote quote1 = new Quote("Once I had fun, it was awful..",1,1);
         Quote quote2 = new Quote("Tomorrow never dies!",1,1);
@@ -27,7 +29,25 @@ public class CourseProjectRunner {
         Mark mark3 = new Mark(8,1,2);
         Mark mark4 = new Mark(10,2,2);
 
-        System.out.println(quote1.getQuote());
+        MyShelf myShelf1 = new MyShelf(1);
+        MyShelf myShelf2 = new MyShelf(2);
+
+        MyBook myBook1 = new MyBook(StatusOfBook.IN_PROGRESS,1,1);
+        MyBook myBook2 = new MyBook(StatusOfBook.NOT_READ,2,1);
+
+        MyBook myBook3 = new MyBook(StatusOfBook.NOT_READ,2,2);
+
+
+        myShelf1.addBook(myBook1, myBook2);
+
+        myShelf2.addBook(myBook3);
+
+        List<MyBook> mb = myShelf1.getMyBooks();
+
+
+        System.out.println(myShelf1);
+
+
 
     }
 }

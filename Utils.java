@@ -5,9 +5,7 @@ import java.util.List;
 /**
  * Created by Olya on 8/14/2016.
  */
-public class Utils {
-
-    //create MyShelf for the particular reader with List <MyBooks>
+public class Utils  {
 
     //get all marks by book (bookId)
     //get all quotes by book (bookId)
@@ -16,4 +14,14 @@ public class Utils {
     //get all marks by reader (readerId) - through the MyShelf
     //get all quotes by reader (readerId)
     //get all reviews by reader (readerId)
+
+    //create sorting
+
+
+    //sort books by title (MyShelf)
+
+
+    //create filtering
+
+
 }
