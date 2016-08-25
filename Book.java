@@ -106,8 +106,8 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Genre getGenre() {
-        return genre;
+    public String getGenre() {
+        return genre.getGenreName();
     }
 
     public void setGenre(Genre genre) {

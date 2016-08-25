@@ -55,8 +55,8 @@ public class Reader {
         this.age = age;
     }
 
-    public Gender getGender() {
-        return gender;
+    public String getGender() {
+        return gender.getGenderName();
     }
 
     public void setGender(Gender gender) {
